@@ -1,8 +1,8 @@
-# Your Name Here
+# Meghan Longua
 # UWYO COSC 1010
 # Submission Date
-# Lab XX
-# Lab Section: 
+# Lab 07
+# Lab Section: 15
 # Sources, people worked with, help given to: 
 # your
 # comments
@@ -19,7 +19,19 @@
 
 factorial = 1
 
-print(f"The result of the factorial based on the given bound is {factorial}")
+while True:
+    upper_bound = input("Enter a number greater than zero to find the factorial (or type 'EXIT' to exit)")
+    if upper_bound == 'EXIT':
+        break
+    if upper_bound == int(upper_bound):
+        factorial = 1
+    for i in range(1, upper_bound + 1):
+        factorial *= i
+
+    print(f"The result of the factorial based on the given bound is {factorial}")
+    break
+    else:
+        print("Only posative numbers can be computed")
 
 print("*"*75)
 # Create a while loop that prompts a user for input of an integer values
@@ -38,8 +50,16 @@ print("*"*75)
 # The sum should start at 0 
 
 num_sum = 0 
+while True:
+    inputs = input("enter a number greater than zero or 'EXIT' to exit.")
+    if inputs == 'EXIT':
+        print(f"Your final sum is {num_sum}")
+        break
+    elif inputs[1:0].isnumeric():
+        num_sum += int(inputs)
+    else:
+        print("Not a valid input")
 
-print(f"Your final sum is {num_sum}")
 
 print("*"*75)
 # Now you will be creating a two operand calculator
@@ -59,4 +79,34 @@ print("*"*75)
 # Print the result of the equation
 # Again, loop through prompting the user for input until `exit` in any casing is input 
 
-        
+ while True:
+    inputs = input("enter computation in correct operator form or enter 'EXIT' to exit")
+        if inputs == 'EXIT':
+            break
+        inputs = inputs.replace(" ", "")
+        operators = "+-/*%"
+        operator = None
+        for i in operators:
+            if i in inputs:
+                operator = i 
+                break
+        if operator:
+            operands = inputs.split(operator)
+            if len(operands) == 2 and all(ops.isdigit() for ops in operands):
+                variable_a = int(operands[0])
+                variable_b = int(operands[1])
+                if operator == "+":
+                    answer = variable_a + variable_b
+                elif: operator == "-":
+                    answer = variable_a - variable_b
+                elif: operator == "/":
+                    answer = variable_a / variable_b
+                elif: operator == "*":
+                    answer = variable_a * variable_b
+                elif: operator == "%":
+                    answer = variable_a % variable_b
+                print(f"The answer is {answer}")
+            else:
+                print("Not a valid input")
+        else:
+            print("Not a valid operator")
